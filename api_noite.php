@@ -19,6 +19,35 @@ if($conn -> connect_error){
 }
 $method = $_SERVER["REQUEST_METHOD"];
 if($method == "POST"){
-    
+    $data = json_decode(file_get_contents("php://input"),
+    true);
+    if (isset(
+        $data ["nome"],
+        $data ["email"],
+        $data ["senha"],
+        $data ["telefone"],
+        $data ["endereço"],
+        $data_nascimento["data_nascimento"],
+    )){ $nome = $data ["nome"];
+        $email = $data ["email"];
+        $senha = $data ["senha"];
+        $telefone = $data ["telefone"];
+        $endereco = $data ["endereço"];
+        $data_nascimento = $data_nascimento["data_nascimento"];
+    }else{
+        http_response_code(400);
+        echo json_encode(["error"=>"Todos os campos são obrigatórios"], JSON_UNESCAPED_UNICODE);
+    };
 }
+$sql = "INSERT INTO API_USUARIOS(nome, email, senha, telefone, endereco, estado, data_nascimento) VALUES ('$nome', '$email', '$senha','  $telefone', '$endereco', '$data_nascimento')" ;
+if ($conn->query($sql){
+    $id = $conn -> insert_id;
+    $result = $conn -> query ("select * from API_USUARIOS where id = $id ");
+    $cliente = $result->fetch_assoc ();
+echo json_encode(["mensagem" =>"CLIENTE CADASTRADO COM SUCESSO","cliente"=> $cliente]) JSON_UNESCAPED_UNICODE
+}else{
+    http_response_code(400);
+    echo json_encode(["error"=>"cliente já existe"],
+    JSON_UNESCAPED_UNICODE);
+})
 ?>
