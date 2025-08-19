@@ -15,5 +15,10 @@ if($conn -> connect_error){
     echo json_encode(["erro" =>"Falha na Conexão com o banco de dados"]),
     JSON_UNESCAPE_UNICODE;
     exit();
+
+}
+$method = $_SERVER["REQUEST_METHOD"];
+if($method == "POST"){
+    
 }
 ?>
