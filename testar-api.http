@@ -1,4 +1,6 @@
 ### Requisição para cadastrar um novo cliente
+
+
 POST http://localhost/teste_backend_thiago/api_noite.php
 Content-Type: application/json
 

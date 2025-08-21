@@ -1,4 +1,5 @@
 <?php
+include "api_noite.php";
 //conexão com o banco de dados
 $host = "localhost";
 $user = "root"; 
@@ -7,6 +8,6 @@ $db = "dados_from_test";
 $conn = new mysqli($host, $user, $password, $db);
 if($conn -> connect_error){
     http_response_code(500);
-    echo json_encode(["erro" =>"Falha na Conexão com o banco de dados"]),    JSON_UNESCAPE_UNICODE;
+    echo json_encode(["erro" =>"Falha na Conexão com o banco de dados"],JSON_UNESCAPED_UNICODE);
     exit();}
 ?>
