@@ -1,0 +1,12 @@
+### Requisição para cadastrar um novo cliente
+POST http://localhost/api/cadastro.php
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "email": "joao@email.com",
+  "senha": "123456",
+  "telefone": "11999999999",
+  "endereco": "Rua Exemplo, 123",
+  "data_nascimento": "1990-01-01"
+}

@@ -1,0 +1,12 @@
+### Requisição para cadastrar um novo cliente
+POST http://localhost/teste_backend_thiago/api_noite.php
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "email": "joao@email.com",
+  "senha": "1234576",
+  "telefone": "11999999999",
+  "endereco": "Rua Exemplo, 123",
+  "data_nascimento": "1990-01-01"
+}
